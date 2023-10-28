@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 578 657">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#_Безымянный_градиент_4);
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: gray;
+      }
+    </style>
+    <linearGradient id="_Безымянный_градиент_4" data-name="Безымянный градиент 4" x1="289" y1="657" x2="289" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4d4d4d"/>
+      <stop offset="1" stop-color="#666"/>
+    </linearGradient>
+  </defs>
+  <path class="cls-1" d="m540.1,0H37.9C16.97,0,0,16.97,0,37.9v47.19c0,20.93,16.97,37.9,37.9,37.9h20.14c-.03.63-.05,1.27-.05,1.9v494.19c0,20.93,16.97,37.9,37.9,37.9h387.19c20.93,0,37.9-16.97,37.9-37.9V124.9c0-.64-.02-1.27-.05-1.9h19.14c20.93,0,37.9-16.97,37.9-37.9v-47.19c0-20.93-16.97-37.9-37.9-37.9Z"/>
+  <rect class="cls-2" x="254" y="138.5" width="70" height="464" rx="35" ry="35"/>
+  <rect class="cls-2" x="123" y="138.5" width="70" height="464" rx="35" ry="35"/>
+  <rect class="cls-2" x="385" y="138.5" width="70" height="464" rx="35" ry="35"/>
+</svg>

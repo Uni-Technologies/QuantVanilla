@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 223.8 251.05">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#_Безымянный_градиент_24);
+        stroke-width: 0px;
+      }
+    </style>
+    <linearGradient id="_Безымянный_градиент_24" data-name="Безымянный градиент 24" x1="-20.3" y1="211.45" x2="151.56" y2="39.6" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ed2b43"/>
+      <stop offset="1" stop-color="#ed9365"/>
+    </linearGradient>
+  </defs>
+  <path class="cls-1" d="m0,125.53V32.97C0,7.53,27.62-8.29,49.56,4.57l78.44,45.96,79.53,46.6c21.7,12.72,21.7,44.09,0,56.8l-79.53,46.6-78.44,45.96c-21.94,12.86-49.56-2.97-49.56-28.4v-92.56Z"/>
+</svg>

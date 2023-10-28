@@ -1,0 +1,33 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:QuantVanilla.ViewModels"
+		xmlns:vvm="using:Quant.cs"
+		mc:Ignorable="d" d:DesignWidth="350" d:DesignHeight="600"
+		Icon="avares://QuantVanilla/Assets/Command.png"
+        x:Class="QuantVanilla.CommandsListWindow"
+        Title="CommandsListWindow"
+		MaxHeight="600"
+		MaxWidth="350"
+		CanResize="False">
+	<Design.DataContext>
+		<!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+		<vm:CommandsListWindowViewModel/>
+	</Design.DataContext>
+	<ListBox SelectionMode="Toggle" Background="White" ItemsSource="{Binding Commands, Mode=TwoWay, DataType={x:Type vm:CommandsListWindowViewModel}}" Width="350" Height="600">
+		<ListBox.ItemTemplate>
+			<DataTemplate x:DataType="vvm:IQuantCommand">
+				<WrapPanel>
+					<Image Width="40" Height="40" Source="{SvgImage /Assets/Command.svg}" Margin="7"/>
+					<StackPanel>
+						<TextBlock FontSize="20" Text="{Binding Name}" TextWrapping="Wrap"/>
+						<Separator/>
+						<TextBlock FontSize="15" Text="{Binding Description}" TextWrapping="Wrap"/>
+					</StackPanel>
+				</WrapPanel>
+			</DataTemplate>
+		</ListBox.ItemTemplate>
+	</ListBox>
+</Window>

@@ -1,0 +1,73 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:QuantVanilla.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="QuantVanilla.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/icon.png"
+        Title="Quant Vanilla"
+		MaxHeight="1080"
+		MaxWidth="1920"
+		Height="600"
+		Width="900"
+		MinHeight="400"
+		MinWidth="500"
+		CanResize="True">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+	<TabControl Margin="0" Padding="0">
+		<TabItem Header="Shell">
+			<Grid ColumnDefinitions="*,50" RowDefinitions="*,50">
+				<ListBox Grid.Column="0" Grid.Row="0" Background="White" ItemsSource="{Binding outs}" SelectionMode="Toggle">
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<WrapPanel>
+								<Image Width="30" Height="30" Stretch="Uniform" Source="{Binding Bitmap}"/>
+								<Rectangle Width="2" Fill="Gray" Margin="5" RadiusX="2" RadiusY="2"/>
+								<TextBlock FontSize="15" Padding="10" VerticalAlignment="Center" Text="{Binding Content}" TextWrapping="Wrap"/>
+							</WrapPanel>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+				<Grid ColumnDefinitions="50" RowDefinitions="50,50,50,*" Grid.Column="1">
+					<Button CornerRadius="0" Width="50" Height="50" HorizontalContentAlignment="Center" ToolTip.Tip="Info" VerticalContentAlignment="Center" Content="{SvgImage /Assets/Info.svg}" Name="InfoButton" Background="White" Click="InfoClick"/>
+					<Button CornerRadius="0" Grid.Row="1" Width="50" Height="50" HorizontalContentAlignment="Center" ToolTip.Tip="Connect" VerticalContentAlignment="Center" Content="{SvgImage /Assets/Connect.svg}" Background="White"  Click="ConnectButton"/>
+					<Button CornerRadius="0" Grid.Row="2" Width="50" Height="50" HorizontalContentAlignment="Center" ToolTip.Tip="Commands list" VerticalContentAlignment="Center" Content="{SvgImage /Assets/List.svg}" Background="White" Click="CmdList_Button"/>
+				</Grid>
+				<TextBox Grid.Column="0" Grid.Row="2" BorderThickness="0" Background="#fff" BorderBrush="White" CornerRadius="0" VerticalContentAlignment="Center" Text="{Binding CmdLine, Mode=TwoWay}" KeyDown="OnEnter" Watermark="{Binding BindOfWatermark, Mode=TwoWay}"/>
+				<Button CornerRadius="0" Grid.Column="1" Grid.Row="2" Width="50" Height="50" ToolTip.Tip="Enter command" Background="White" Content="{SvgImage /Assets/Enter.svg}" Command="{Binding enterCommand, Mode=TwoWay}"/>
+			</Grid>
+		</TabItem>
+		<TabItem Header="Notifications">
+			<Grid ColumnDefinitions="*,50" RowDefinitions="*">
+				<ListBox ItemsSource="{Binding notifications}" Background="White" SelectionMode="Toggle">
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<WrapPanel>
+								<Image Width="50" Height="50" Stretch="Uniform" VerticalAlignment="Center" Source="/Assets/notification.png" Margin="15"/>
+								<StackPanel>
+									<TextBlock FontSize="20" Text="{Binding notification.Title}" TextWrapping="Wrap"/>
+									<TextBlock FontSize="15" Text="{Binding notification.Description}" TextWrapping="Wrap"/>
+									<Separator/>
+									<TextBlock FontSize="15" Text="{Binding notification.Sender}" TextWrapping="Wrap"/>
+								</StackPanel>
+							</WrapPanel>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+				<Grid Grid.Column="1" RowDefinitions="*,*">
+					<Grid Grid.Row="0" RowDefinitions="50,*,100" ColumnDefinitions="*,90">
+						<Button ToolTip.Tip="Clear notifications" VerticalAlignment="Center" Width="50" Height="50" Grid.Row="0" CornerRadius="0" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="{SvgImage /Assets/delete.svg}" Command="{Binding cleanNotifications}"/>
+					</Grid>
+				</Grid>
+			</Grid>
+		</TabItem>
+	</TabControl>
+</Window>

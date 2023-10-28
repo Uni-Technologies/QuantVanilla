@@ -1,0 +1,27 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:vm="using:QuantVanilla.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="QuantVanilla.ConnectionWindow"
+        Title="Quant Connect"
+		Icon="avares://QuantVanilla/Assets/icon_connect.png"
+		CanResize="False"
+		MaxHeight="200"
+		MaxWidth="300">
+	<Design.DataContext>
+		<!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+		<vm:ConnectionWindowViewModel/>
+	</Design.DataContext>
+	<Grid RowDefinitions="66,*,*,*" ColumnDefinitions="*,200,*">
+		<TextBlock Text="Connect to Quant Server" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<TextBox Watermark="Enter Uri here" Grid.Row="1" Grid.Column="1" Text="{Binding Host, Mode=TwoWay, DataType={x:Type vm:ConnectionWindowViewModel}}" Name="ConnectHostBox"/>
+		<Grid Grid.Row="2" Grid.Column="1" ColumnDefinitions="*,*">
+			<Button Grid.Column="0" Width="100" Height="35" Content="Connect" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalAlignment="Top" VerticalContentAlignment="Center" Command="{Binding ConnectCommand, DataType={x:Type vm:ConnectionWindowViewModel}}"/>
+			<Button Grid.Column="1" Width="100" Height="35" Content="Disconnect" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalAlignment="Top" VerticalContentAlignment="Center" Command="{Binding DisconnectCommand, DataType={x:Type vm:ConnectionWindowViewModel}}"/>
+		</Grid>
+		<TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding ConnectedText, DataType={x:Type vm:ConnectionWindowViewModel}}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+	</Grid>
+</Window>
